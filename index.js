@@ -5,6 +5,25 @@ const c = canvas.getContext('2d')
 canvas.width = innerWidth
 canvas.height = innerHeight
 
+var x = 0;
+var y = 150;
+
+setInterval(gameloop,50);
+
+function gameloop() {
+    if(y<=canvas.height) desenharAsteroide(x,y);
+    else clearInterval();
+    y = y + 10;
+}
+
+function desenharAsteroide(pX,pY) {
+    c.clearRect(0,0, canvas.width, canvas.height)
+    c.fillStyle = 'blue';
+    c.fillRect(pX,pY,100,100);
+}
+
+desenharAsteroide(x,y);
+
 var image = new Image();
 image.src = './1263097_flight_space_spacecraft_spaceship_icon.png';
 image.onload = () => {
